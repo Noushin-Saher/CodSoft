@@ -1,0 +1,66 @@
+﻿from tkinter import *
+exp=""
+def num(n):
+    global exp
+    exp=exp+str(n)
+    equa.set(exp)
+def equalto():
+    try:
+        global exp
+        ans=str(eval(exp))
+        equa.set(ans)
+        exp=""
+    except:
+        equa.set("error")
+        exp=""
+def clear():
+    global exp
+    exp=""
+    equa.set("")
+cal = Tk()
+equa = StringVar()
+cal.title("simple calculator")
+cal.geometry("400x500")
+field=Entry(cal,textvariable=equa,width=54)
+field.grid(columnspan=3)
+key_7 = Button(cal, text = '7',fg='black',bg='white', command = lambda:num(7),height = 3, width = 18)
+key_7.grid(row=2,column=0)
+key_8 = Button(cal, text = '8',fg='black',bg='white', command = lambda:num(8),height = 3, width = 18)
+key_8.grid(row=2,column=1)
+key_9 = Button(cal, text = '9',fg='black',bg='white', command = lambda:num(9),height = 3, width = 18)
+key_9.grid(row=2,column=2)
+key_4 = Button(cal, text = '4',fg='black',bg='white', command = lambda:num(4),height = 3, width = 18)
+key_4.grid(row=3,column=0)
+key_5 = Button(cal, text = '5',fg='black',bg='white', command = lambda:num(5),height = 3, width = 18)
+key_5.grid(row=3,column=1)
+key_6 = Button(cal, text = '6',fg='black',bg='white', command = lambda:num(6),height = 3, width = 18)
+key_6.grid(row=3,column=2)
+key_1 = Button(cal, text = '1',fg='black',bg='white', command = lambda:num(1),height = 3, width = 18)
+key_1.grid(row=4,column=0)
+key_2 = Button(cal, text = '2',fg='black',bg='white', command = lambda:num(2),height = 3, width = 18)
+key_2.grid(row=4,column=1)
+key_3 = Button(cal, text = '3',fg='black',bg='white', command = lambda:num(3),height = 3, width = 18)
+key_3.grid(row=4,column=2)
+key_brace = Button(cal, text = '(',fg='black',bg='white', command = lambda:num('('),height = 3, width = 18)
+key_brace.grid(row=5,column=0)
+key_0 = Button(cal, text = '0',fg='black',bg='white', command = lambda:num(0),height = 3, width = 18)
+key_0.grid(row=5,column=1)
+key_braceclose = Button(cal, text = ')',fg='black',bg='white', command = lambda:num(')'),height = 3, width = 18)
+key_braceclose.grid(row=5,column=2)
+key_dot = Button(cal, text = '.',fg='black',bg='white', command = lambda:num('.'),height = 3, width = 18)
+key_dot.grid(row=6,column=0)
+key_plus = Button(cal, text = '+',fg='black',bg='white', command = lambda:num('+'),height = 3, width = 18)
+key_plus.grid(row=6,column=1)
+key_minus = Button(cal, text = '-',fg='black',bg='white', command = lambda:num('-'),height = 3, width = 18)
+key_minus.grid(row=6,column=2)
+key_multiply = Button(cal, text = 'X',fg='black',bg='white', command = lambda:num('*'),height = 3, width = 18)
+key_multiply.grid(row=7,column=0)
+key_division = Button(cal, text = '/',fg='black',bg='white', command = lambda:num('/'),height = 3, width = 18)
+key_division.grid(row=7,column=1)
+key_power = Button(cal, text = '^',fg='black',bg='white', command = lambda:num('**'),height = 3, width = 18)
+key_power.grid(row=7,column=2)
+key_equal = Button(cal, text = '=',fg='black',bg='white', command = equalto,height = 3, width = 36)
+key_equal.grid(row=8,column=0,columnspan=2)
+key_clea = Button(cal, text = 'CLEAR',fg='black',bg='white', command = clear ,height = 3, width = 18)
+key_clea.grid(row=8,column=2)
+cal.mainloop()
